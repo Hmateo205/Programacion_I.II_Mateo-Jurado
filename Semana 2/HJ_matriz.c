@@ -6,7 +6,7 @@ void ingresarMatriz(int matriz[3][3]) {
     int i, j;
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            printf("Ingrese el valor para la posición [%d][%d]: ", i, j);
+            printf("Ingrese el valor para la posicion [%d][%d]: ", i, j);
             scanf("%d", &matriz[i][j]);
         }
     }
