@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "HJ_matriz.h"
 
+
 void ingresarMatriz(int matriz[3][3]) {
     int i, j;
     for (i = 0; i < 3; i++) {
