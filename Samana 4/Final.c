@@ -1,5 +1,18 @@
 #include <stdio.h>
-#include "HJ_Funciones.h"
+#include <math.h>
+
+// Estructura para representar un punto en el espacio tridimensional
+typedef struct {
+    double x;
+    double y;
+    double z;
+} Point;
+
+// Función para calcular la distancia entre dos puntos
+double calculateDistance(Point p1, Point p2) {
+    double distance = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2));
+    return distance;
+}
 
 int main() {
     Point points[4];

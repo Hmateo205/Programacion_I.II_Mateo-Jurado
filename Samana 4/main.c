@@ -1,21 +1,7 @@
-#include <stdio.h>
-#include <math.h>
 #include "HJ_Funciones.h"
+#include <math.h>
 
-int main() {
-    PuntoCartesiano puntos[4];
-
-    // Leer los 4 puntos
-    for (int i = 0; i < 4; i++) {
-        printf("Punto %d:\n", i + 1);
-        leerPunto(&puntos[i]);
-    }
-
-    // Calcular el área
-    double area = calcularArea(puntos);
-
-    // Mostrar el área calculada
-    printf("\nEl area formada por los puntos ingresados es: %.2lf\n", area);
-
-    return 0;
+double calculateDistance(Point p1, Point p2) {
+    double distance = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2));
+    return distance;
 }
