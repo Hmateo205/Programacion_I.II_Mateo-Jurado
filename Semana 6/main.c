@@ -1,28 +1,50 @@
 #include <stdio.h>
+#include <math.h>
 
-int main (int argc, char *argv[]) {
+float calcularDistancia(float x1, float y1, float z1, float x2, float y2, float z2) {
+    float distancia;
+    distancia = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2) + pow((z2 - z1), 2));
+    return distancia;
+}
 
-    int cono1[3][3];
-    int cono2[3][3];
+float calcularAreaCono(float radio, float altura) {
+    float area;
+    area = M_PI * radio * (radio + sqrt(pow(altura, 2) + pow(radio, 2)));
+    return area;
+}
 
-    for (int i = 0; i < 3; i++)
-    {
-        cono1[i][0]=ingreseComponente('X',i);
-        cono1[i][1]=ingreseComponente('Y',i);
-        cono1[i][2]=ingreseComponente('Z',i);
-    }
-     for (int j = 0; j < 3; j++)
-    {
-        cono2[j][0]=ingreseComponente('X',j);
-        cono2[j][1]=ingreseComponente('Y',j);
-        cono2[j][2]=ingreseComponente('Z',j);
-    }
+float calcularVolumenCono(float radio, float altura) {
+    float volumen;
+    volumen = (M_PI * pow(radio, 2) * altura) / 3;
+    return volumen;
+}
 
-    float volumen1=calcularVolumen(cono1);
-    float volumen2=calcularVolumen(cono2);
+int main() {
+    float x1, y1, z1; // Coordenadas del centro del cono (p1)
+    float x2, y2, z2; // Coordenadas del punto en el radio del cono (p2)
+    float x3, y3, z3; // Coordenadas del punto en la altura del cono (p3)
+    float radio, altura;
+    float area, volumen;
 
-    imprimirVolumenArea(volumen1, volumen2,cono1,cono2);
-    
+    // Obtener las coordenadas del usuario
+    printf("Ingrese las coordenadas del centro del cono (p1):\n");
+    scanf("%f %f %f", &x1, &y1, &z1);
+    printf("Ingrese las coordenadas del punto en el radio del cono (p2):\n");
+    scanf("%f %f %f", &x2, &y2, &z2);
+    printf("Ingrese las coordenadas del punto en la altura del cono (p3):\n");
+    scanf("%f %f %f", &x3, &y3, &z3);
+
+    // Calcular el radio y la altura
+    radio = calcularDistancia(x1, y1, z1, x2, y2, z2);
+    altura = calcularDistancia(x1, y1, z1, x3, y3, z3);
+
+    // Calcular el área y el volumen
+    area = calcularAreaCono(radio, altura);
+    volumen = calcularVolumenCono(radio, altura);
+
+    // Imprimir los resultados
+    printf("El área del cono es: %.2f\n", area);
+    printf("El volumen del cono es: %.2f\n", volumen);
 
     return 0;
 }
